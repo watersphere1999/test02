@@ -28,8 +28,6 @@ import { blue } from '@material-ui/core/colors';
 // for GPS location
 import useGeolocation from "react-hook-geolocation";
 
-import { pathway, pathwayFamily, pathwayFavorite } from 'data/pathway';
-
 const theme = createMuiTheme({
     palette: {
         secondary: blue,
@@ -75,12 +73,6 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const api = axios.create({
-    baseURL: "https://go-hiking-backend-laravel.herokuapp.com/",
-    headers: {
-        "X-Secure-Code": "12345678",
-    },
-});
 
 function a11yProps(index) {
     return {
