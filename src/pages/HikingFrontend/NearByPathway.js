@@ -12,6 +12,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Navigation from "../../components/Bottom/Navigation";
 import PathwayDistance from "../../components/PathwayCard/PathwayDistance";
+import { pathway } from 'data/pathway';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import { ReactComponent as Map } from '../../asset/img/map.svg';
@@ -120,16 +121,15 @@ function NearByPathway() {
     };
     const handleSetting = () => {
         setOpenDialog(false);
-        setGpsSetting(true);
-        setYes(1);
+        setYes(1);       
 
     };
     const handleCancel = () => {
         setOpenDialog(false);
     };
 
-    const GPS = () => {
-        navigator.geolocation.getCurrentPosition(success, error);
+    const GPS = async() => {
+        await navigator.geolocation.getCurrentPosition(success, error);
     };
 
     //call trails and set trails data in search and id is category
@@ -177,12 +177,20 @@ function NearByPathway() {
         GPS();
     }, [yes]);
 
+   
+    const [lat, setLat] = useState(0);
+    const [lng, setLng] = useState(0);
+
+
     function success(pos) {
         var crd = pos.coords;
+        setLat(crd.latitude);
+        setLng(crd.longitude);
         console.log("Your current position is:");
         console.log("Latitude : " + crd.latitude);
         console.log("Longitude: " + crd.longitude);
         console.log("More or less " + crd.accuracy + " meters.");
+        setGpsSetting(true);
     }
 
     function error(err) {

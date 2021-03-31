@@ -91,13 +91,13 @@ function getDistance(start, end) {
     var lon2 = (Math.PI / 180) * end.longitude;
     var lat2 = (Math.PI / 180) * end.latitude;
 
-    // 地球半径
+    // 地球半徑
     var R = 6371;
 
-    // 两点间距离 KM
+    // 兩點間距離 KM
     var d = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1)) * R;
 
-    // 公里转米
+    // 公里轉公尺
     var abs = Math.abs(d);
 
     return Math.round(abs);

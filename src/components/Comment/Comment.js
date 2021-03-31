@@ -90,7 +90,7 @@ export default function Commit(props) {
   const data = props.data;
 //   const data = Array.from(props);
  
-  return data.map((comment) => (
+  return data.slice(0,2).map((comment) => (
       
     <ThemeProvider theme={lightTheme}>
       <Grid className={classes.comment}>

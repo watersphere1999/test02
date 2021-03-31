@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import Slider from "react-slick";
 import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import fontStyle from '../../assets/jss/fontStyle';
@@ -7,6 +7,7 @@ import { pathwayInfo } from '../../data/pathway';
 import darkTheme from '../../config/darkTheme';
 
 import AppBar from '@material-ui/core/AppBar';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
@@ -274,15 +275,23 @@ import MuiAlert from '@material-ui/lab/Alert';
                     </div>
                     <Divider style={{height:'8px'}} />
                     <div style={{padding: '16px 16px 0 16px'}}>
-                        <Typography style={{marginBottom: '16px', fontSize:'16px'}}>步道介紹</Typography>
+                        <Typography style={{marginBottom: '16px', fontSize:'16px', fontWeight: '700'}}>步道介紹</Typography>
                         <Typography style={{marginBottom: '24px', fontSize:'14px'}}>{pathwayInfo.intro}</Typography>
-                        <a className={classes.buttonBase} onClick={() => Zmage.browsing({ src: imagePath })}>                
-                            {/* <img style={{position:'absolute', width:'100%', height:'224px', objectFit:'cover'}}alt={'map'} src={pathwayInfo.map}/>
-                            <div style={{position:'relative', width:'100%', height:'224px',backgroundColor: 'rgba(0,0,0,0.6)', top:'100px', left:'50px'}}></div> */}
+
+                        {/* <a className={classes.buttonBase} onClick={() => Zmage.browsing({ src: imagePath })}>                
+                            <img style={{position:'absolute', width:'100%', height:'224px', objectFit:'cover'}}alt={'map'} src={pathwayInfo.map}/>
+                            <div style={{position:'relative', width:'100%', height:'224px',backgroundColor: 'rgba(0,0,0,0.6)', top:'100px', left:'50px'}}></div> 
                             <img alt={'map'} src={pathwayInfo.map} className={classes.map} />
                             <div className={classes.overlay} />
                             <div className={classes.mapIcon}><ZoomInIcon fontSize="large" /></div>                            
-                        </a>
+                            </a> */}
+                        <ButtonBase className={classes.buttonBase} onClick={() => Zmage.browsing({ src: pathwayInfo.map })} >
+                            <img alt={'map'} src={pathwayInfo.map} className={classes.map} />
+                            <div className={classes.overlay} />
+                            <div className={classes.mapIcon}>
+                                <ZoomInIcon fontSize="large" />
+                            </div>
+                        </ButtonBase>
                     </div>
                     <Divider style={{height:'8px'}} />
                     <div>
