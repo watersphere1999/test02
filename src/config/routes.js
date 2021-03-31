@@ -7,12 +7,13 @@ import PersonalPage from 'pages/PersonalPage'
 import EditAccount from 'pages/PersonalPage/EditAccount'
 import CropAvatar from 'pages/PersonalPage/CropAvatar'
 
+import Home from '../pages/Home/Home'
 
 // const SignIn = lazy(() => import('../pages/SignIn/SignIn'))
 const SignUp = lazy(() => import('../pages/SignUp/SignUp'))
 const PasswordReset = lazy(() => import('../pages/PasswordReset/PasswordReset'))
 const About = lazy(() => import('../pages/About'))
-const Home = lazy(() => import('../pages/Home/Home'))
+//const Home = lazy(() => import('../pages/Home/Home'))
 const DialogDemo = lazy(() => import('../pages/DialogDemo/DialogDemo'))
 const ToastDemo = lazy(() => import('../pages/ToastDemo/ToastDemo'))
 const FilterDemo = lazy(() => import('../pages/FilterDemo'))
@@ -68,7 +69,7 @@ const routes = [
   <Route path="/cropAvatar" exact component={CropAvatar} />,
   <Route path="/privacyPolicy" exact component={PrivacyPolicy} />,
   <Route path="/aboutUs" exact component={AboutUs} />,
-  <Route path="/Home" exact component={Home} />,
+  <Route path="/Home" component={Home} />,
   <Route path="/about" exact component={About} />,
   <Route path="/collectPage" exact component={CollectPage} />,
   <Route path="/collectPage2" exact component={CollectPage2} />,
