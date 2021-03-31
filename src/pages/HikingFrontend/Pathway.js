@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import {makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import fontStyle from '../../assets/jss/fontStyle';
 import basicStyle from '../../assets/jss/basicStyle';
-import { pathway, pathwayInfo } from '../../data/pathway';
+import { pathwayInfo } from '../../data/pathway';
 import darkTheme from '../../config/darkTheme';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -83,14 +83,13 @@ import MuiAlert from '@material-ui/lab/Alert';
     const Pathway = () =>{
         const classes = useStyles();
         const history = useHistory();        
-        const [auth, setAuth] = React.useState(true);
         const imagePath = pathwayInfo.map;
         const[value, setValue] = useState('');
         const [open, setOpen] = React.useState(true);
         const handleClose = () => {
             setOpen(false);
           };
-       
+      
         const chartSetting={
             series: [{
                 name: 'Series 1',
@@ -277,7 +276,7 @@ import MuiAlert from '@material-ui/lab/Alert';
                     <div style={{padding: '16px 16px 0 16px'}}>
                         <Typography style={{marginBottom: '16px', fontSize:'16px'}}>步道介紹</Typography>
                         <Typography style={{marginBottom: '24px', fontSize:'14px'}}>{pathwayInfo.intro}</Typography>
-                        <a className={classes.buttonBase} onClick={() => Zmage.browsing({ src: imagePath})}>                
+                        <a className={classes.buttonBase} onClick={() => Zmage.browsing({ src: imagePath })}>                
                             {/* <img style={{position:'absolute', width:'100%', height:'224px', objectFit:'cover'}}alt={'map'} src={pathwayInfo.map}/>
                             <div style={{position:'relative', width:'100%', height:'224px',backgroundColor: 'rgba(0,0,0,0.6)', top:'100px', left:'50px'}}></div> */}
                             <img alt={'map'} src={pathwayInfo.map} className={classes.map} />
